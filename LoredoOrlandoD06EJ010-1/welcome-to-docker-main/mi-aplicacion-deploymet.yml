@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-aplicacion-deployment 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: welcome-to-docker 
+  template:
+    metadata:
+      labels:
+        app: welcome-to-docker
+    spec:
+      containers:
+      - name: welcome-to-docker-container
+        image: welcome-to-docker:latest
+        ports:
+        - containerPort: 3000 
